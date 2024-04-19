@@ -8,6 +8,30 @@
 body
     margin 0 //Nastavíme si odsazení na 0
     padding 0 //Nastavíme si vnitřní odsazení na 0, většina elementu si tohle opíše jako defaultní hodnotu
+    background-color: rgba(255, 145, 0, 0.603)
+
+main
+    .Recepty
+        display: flex
+        justify-content: space-between
+        padding: 100px
+
+    #pecka
+        text-decoration: none
+        color: black
+        text-align: center
+        position: relative
+        bottom: 16px 
+    p
+        border-style: solid
+        border-radius: 10px
+        border-color: black
+        padding: 10px
+        background-color: rgba(175, 85, 0, 0.623)
+    .obrazek
+        border-style: none
+        border-radius: 10px
+
 
 //Hlavní rodič pro header
 header
@@ -15,7 +39,7 @@ header
     height 100px //Dodržujte odszaení ideálně pomocí tlačítka TAB
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px //Nastavíme si mále stínění pdo headerem, vypadá to pak dobře :P
     position relative //Positions relative je jistota pro fungování positions absolute pro jiné své potomky
-    background-color: none //Zde nastavují barvu na žádnou, všimněte si, že dvojtečky můžete používat
+    background-color: white //Zde nastavují barvu na žádnou, všimněte si, že dvojtečky můžete používat
 
     //wrapper zde volám jako potomka header, do CSS se Vám vypíše jako - header .wrapper {Zde je pak Váš kód}
     //Pokud by byla mimo header (odsazená uplně vlevo) vyhledavál by .wrapper v celém body. Tímhle ho vyledá jen v headeru (ve svém rodiči)
@@ -31,12 +55,12 @@ header
         z-index 10 //Zde nastavujeme úroveň vstvy, vyšší má vyšší právo překrýt jiný element
         position relative //Díky tomu nám funguje z-index mezi wrapper a nav, wrapper bude překrývat pomocí z-index nav, pokud budou ve stejné pozici
         
-        //& (píšeme pomocá pravý alt + c)
-        //& opíše svého rodiče a přídáte jméno potomka
-        //&-logo je stejný jako .wrapper-logo
+
         &-logo
-            width: 50px //nastavíme výšku a šířku loga
-            height: 50px
+            //width: 50px //nastavíme výšku a šířku loga
+            height: 100%
+            position relative
+            z-index 100
 
             img
                 width: 100% //img se přizpůsobí maximální šířce i výšce svého rodiče
@@ -113,8 +137,8 @@ header
             flex-direction: row //Ze sloupce uděláme řádek
             justify-content: flex-end //Je dost časté, že navigace je v pravo
             padding-right: 60px //Aby nebyl header nalepený úplně u rohu, dáme mu odsazení jen na pravou stranu
-            transform: translate(-50%, -150%) //Zde nastavíme pomocí positions absolute aby byl krásně uprostřed (-150%), X stále drříme defaultní hodnotu jako u prvního
-            max-width: 1300px //Nastavíme maximální šířku na 1300px, translateX(-50%) o řádek víše nám hlídá, aby byl na prostředku
+            transform: translate(35%, -150%) //Zde nastavíme pomocí positions absolute aby byl krásně uprostřed (-150%), X stále drříme defaultní hodnotu jako u prvního
+            max-width: 450px //Nastavíme maximální šířku na 1300px, translateX(-50%) o řádek víše nám hlídá, aby byl na prostředku
             background: none //Pokud byl nějaky background, tímhle ho vypnu, chci, aby byla stejná barva jakoje header
             box-shadow: none //Chceme vypnout box-shadow aby nešlo vidět zbytečně v headeru
 
@@ -126,4 +150,6 @@ header
     .is-open
         //translateX(-50%) - musíme mu říct, že hodnota pro X je stále stejná jako v základu, jinak si jí dá do defaultní hodnoty 0
         transform: translateX(-50%) translateY(0px) //Zde nastavujeme, jak se pohne, pokud se třída přidá, měníme hlavně Y na 0, tím se nám navigace posune hned pod header.
+
+
         
